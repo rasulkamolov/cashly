@@ -46,6 +46,43 @@ $nav_items = [
     </button>
 </div>
 
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-30 hidden md:hidden transition-opacity duration-300 opacity-0"></div>
+
+<!-- Mobile Sidebar -->
+<aside id="mobile-sidebar" class="fixed inset-y-0 left-0 w-64 bg-white dark:bg-jm-navy border-r border-gray-200 dark:border-gray-700 z-40 transform -translate-x-full transition-transform duration-300 md:hidden flex flex-col h-full">
+    <div class="p-6 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-jm-primary rounded flex items-center justify-center text-white font-bold text-lg">J</div>
+            <span class="font-bold text-xl text-jm-primary dark:text-white tracking-tight">JM Solutionss</span>
+        </div>
+        <button id="close-mobile-menu-btn" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">
+            <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto py-4">
+        <ul class="space-y-1 px-3">
+            <?php foreach ($nav_items as $page => $item): ?>
+            <li>
+                <a href="<?php echo $page == 'dashboard' ? 'dashboard.php' : $page . '.php'; ?>"
+                   class="flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-200 <?php echo ($current_page == $page || ($current_page == 'index' && $page == 'dashboard')) ? 'bg-jm-primary text-white' : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'; ?>">
+                    <i data-lucide="<?php echo $item['icon']; ?>" class="w-5 h-5"></i>
+                    <span class="font-medium"><?php echo $item['label']; ?></span>
+                </a>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </nav>
+
+    <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+        <div class="flex items-center gap-3 px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-jm-primary cursor-pointer transition-colors">
+            <i data-lucide="log-out" class="w-5 h-5"></i>
+            <span class="font-medium">Logout</span>
+        </div>
+    </div>
+</aside>
+
 <!-- Main Content Wrapper Start -->
 <div class="flex-1 md:ml-64 flex flex-col min-h-screen transition-all duration-200">
 

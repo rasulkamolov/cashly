@@ -90,3 +90,31 @@ INSERT INTO categories (name, type, icon) VALUES
 -- Seed User
 INSERT INTO users (name, email, currency, monthly_spending_limit) VALUES
 ('John Doe', 'john.doe@example.com', 'USD', 5000.00);
+
+-- Seed Transactions (Sample Data)
+INSERT INTO transactions (type, amount, category, recipient_name, status, transaction_date, notes) VALUES
+('income', 5000.00, 'Salary', 'Tech Corp Inc.', 'completed', date('now', 'start of month', '+1 day'), 'Monthly Salary'),
+('expense', 120.50, 'Food & Grocery', 'Whole Foods', 'completed', date('now', '-2 days'), 'Weekly groceries'),
+('expense', 45.00, 'Transportation', 'Uber', 'completed', date('now', '-5 days'), 'Ride to airport'),
+('expense', 15.99, 'Subscriptions', 'Netflix', 'completed', date('now', '-10 days'), 'Monthly subscription'),
+('expense', 250.00, 'Bills & Utilities', 'Electric Company', 'completed', date('now', '-15 days'), 'Electricity bill'),
+('income', 200.00, 'Freelance', 'Client X', 'completed', date('now', '-3 days'), 'Logo design'),
+('expense', 80.00, 'Entertainment', 'Cinema City', 'completed', date('now', '-1 day'), 'Movie night'),
+('expense', 1200.00, 'Other', 'Landlord', 'pending', date('now', '+1 day'), 'Rent payment'),
+('expense', 35.00, 'Shopping', 'Amazon', 'completed', date('now', '-7 days'), 'Books');
+
+-- Seed Cards
+INSERT INTO cards (card_number, cardholder_name, expiry_date, card_type, nickname) VALUES
+('4242', 'John Doe', '12/25', 'visa', 'Primary Visa'),
+('8888', 'John Doe', '06/24', 'mastercard', 'Shopping Card');
+
+-- Seed Goals
+INSERT INTO goals (name, target_amount, current_amount, target_date) VALUES
+('New Car', 25000.00, 5000.00, date('now', '+1 year')),
+('Emergency Fund', 10000.00, 2500.00, date('now', '+6 months'));
+
+-- Seed Budgets
+INSERT INTO budgets (category, allocated_amount, month) VALUES
+('Food & Grocery', 600.00, strftime('%Y-%m', 'now')),
+('Entertainment', 300.00, strftime('%Y-%m', 'now')),
+('Healthcare', 200.00, strftime('%Y-%m', 'now'));
