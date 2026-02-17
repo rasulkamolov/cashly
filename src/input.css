@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body {
+    @apply font-sans text-jm-black bg-jm-light-gray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-jm-primary;
+}
+
+.btn-primary {
+    @apply bg-jm-primary text-white rounded-lg px-4 py-2 hover:bg-jm-secondary transition-colors duration-200;
+}
+
+.btn-secondary {
+    @apply border-2 border-jm-primary text-jm-primary rounded-lg px-4 py-2 hover:bg-blue-50 transition-colors duration-200;
+}
+
+.card {
+    @apply bg-white rounded-xl shadow-sm p-6 border border-gray-100;
+}
+
+/* Dark mode overrides (if needed) */
+.dark body {
+    @apply bg-jm-navy text-white;
+}
+
+.dark .card {
+    @apply bg-jm-navy border-gray-700;
+}
